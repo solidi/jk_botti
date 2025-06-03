@@ -15,9 +15,19 @@ jobs:
       run: sudo apt-get -y install build-essential g++-multilib gcc-mingw-w64 g++-mingw-w64
     - name: make
       run: make
+    - name: Upload client.so
+      uses: actions/upload-artifact@v4
+      with:
+        name: jk_botti_mm_i386
+        path: ./addons/jk_botti/dlls/jk_botti_mm_i386.so
     - name: cleanup 1
       run: git clean -xdf
     - name: make win32
       run: make OSTYPE=win32
+    - name: Upload jk_botti_mm.dll
+      uses: actions/upload-artifact@v4
+      with:
+        name: jk_botti_mm
+        path: ./addons/jk_botti/dlls/jk_botti_mm.dll
     - name: cleanup 2
       run: git clean -xdf
