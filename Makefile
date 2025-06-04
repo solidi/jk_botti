@@ -6,7 +6,7 @@
 
 ifeq ($(OSTYPE),win32)
 	CPP = i686-w64-mingw32-g++ -m32
-	CC = i686-w64-mingw32-gcc -m32 -g
+	CC = i686-w64-mingw32-gcc -m32
 	AR = i686-w64-mingw32-ar rc
 	RANLIB = i686-w64-mingw32-ranlib
 	LINKFLAGS = -mdll -lm -lwsock32 -lws2_32 -Xlinker --add-stdcall-alias -s
@@ -24,7 +24,7 @@ else
 endif
 
 TARGET = jk_botti_mm
-BASEFLAGS = -Wall -Wno-write-strings
+BASEFLAGS = -g -Wall -Wno-write-strings
 BASEFLAGS += -fno-strict-aliasing -fno-strict-overflow
 ARCHFLAG += -march=i686 -mtune=generic -msse -msse2 -msse3
 
