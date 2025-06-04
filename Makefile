@@ -24,7 +24,7 @@ else
 endif
 
 TARGET = jk_botti_mm
-BASEFLAGS = -g -Wall -Wno-write-strings
+BASEFLAGS = -Wall -Wno-write-strings
 BASEFLAGS += -fno-strict-aliasing -fno-strict-overflow
 ARCHFLAG += -march=i686 -mtune=generic -msse -msse2 -msse3
 
