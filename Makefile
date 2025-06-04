@@ -29,7 +29,7 @@ BASEFLAGS += -fno-strict-aliasing -fno-strict-overflow
 ARCHFLAG += -march=i686 -mtune=generic -msse -msse2 -msse3
 
 ifeq ($(DBG_FLGS),1)
-	OPTFLAGS = -O0 -g
+	OPTFLAGS = -gdwarf -O0 -g
 else
 	OPTFLAGS = -O2 -fomit-frame-pointer -g
 endif
