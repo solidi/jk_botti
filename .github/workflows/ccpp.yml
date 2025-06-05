@@ -23,7 +23,7 @@ jobs:
     - name: cleanup 1
       run: git clean -xdf
     - name: make win32
-      run: make OSTYPE=win32 DBG_FLGS=1
+      run: make OSTYPE=win32
     - name: Upload jk_botti_mm.dll
       uses: actions/upload-artifact@v4
       with:
