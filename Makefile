@@ -18,7 +18,7 @@ else
 	AR = ar rc
 	RANLIB = ranlib
 	ARCHFLAG = -fPIC
-	LINKFLAGS = -fPIC -shared -ldl -lm -s
+	LINKFLAGS = -fPIC -shared -ldl -lm
 	DLLEND = _i386.so
 	ZLIB_OSFLAGS = -DNO_UNDERLINE -DZ_PREFIX
 endif
@@ -32,6 +32,7 @@ ifeq ($(DBG_FLGS),1)
 	OPTFLAGS = -O0 -g
 else
 	OPTFLAGS = -O2 -fomit-frame-pointer -g
+	LINKFLAGS += -s
 endif
 
 INCLUDES = -I"./metamod" \

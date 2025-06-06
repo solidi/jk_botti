@@ -839,7 +839,11 @@ void BotCreate( const char *skin, const char *name, int skill, int top_color, in
       // create the player entity by calling MOD's player function
       // (from LINK_ENTITY_TO_CLASS for player object)
 
+      UTIL_ConsolePrintf("1 \n");
+
       CALL_GAME_ENTITY (PLID, "player", VARS(BotEnt));
+
+      UTIL_ConsolePrintf("2 \n");
 
       infobuffer = GET_INFOKEYBUFFER( BotEnt );
       clientIndex = ENTINDEX( BotEnt );
@@ -850,12 +854,16 @@ void BotCreate( const char *skin, const char *name, int skill, int top_color, in
       if (top_color != -1)
          SET_CLIENT_KEYVALUE( clientIndex, infobuffer, "topcolor", c_topcolor );
 
+      UTIL_ConsolePrintf("2a \n");
+
       if (bottom_color != -1)
          SET_CLIENT_KEYVALUE( clientIndex, infobuffer, "bottomcolor", c_bottomcolor );
 
       // JK_Botti fix, call our own ClientConnect first.
       jkbotti_ClientConnect( BotEnt, c_name, "::::local:jk_botti", ptr );
       MDLL_ClientConnect( BotEnt, c_name, "127.0.0.1", ptr );
+
+      UTIL_ConsolePrintf("2b \n");
 
       // JK_Botti fix, call our own ClientPutInServer first.
       jkbotti_ClientPutInServer( BotEnt );
@@ -864,6 +872,8 @@ void BotCreate( const char *skin, const char *name, int skill, int top_color, in
       BotEnt->v.flags |= FL_THIRDPARTYBOT | FL_FAKECLIENT;
 
       // initialize all the variables for this bot...
+
+      UTIL_ConsolePrintf("3 \n");
 
       bot_t &pBot = bots[index];
       memset(&pBot, 0, sizeof(pBot));
@@ -889,6 +899,8 @@ void BotCreate( const char *skin, const char *name, int skill, int top_color, in
 
       BotEnt->v.idealpitch = BotEnt->v.v_angle.x;
       BotEnt->v.ideal_yaw = BotEnt->v.v_angle.y;
+
+      UTIL_ConsolePrintf("4 \n");
 
       // these should REALLY be MOD dependant...
       BotEnt->v.pitch_speed = 270;  // slightly faster than HLDM of 225
@@ -923,6 +935,7 @@ void BotCreate( const char *skin, const char *name, int skill, int top_color, in
       pBot.stay_time = 60 * (double)RANDOM_FLOAT2(30, 160);
       // bot has been already here for 10%-50% of the total stay time
       pBot.connect_time = UTIL_GetSecs() - pBot.stay_time * (double)RANDOM_FLOAT2(0.2, 0.8);
+      UTIL_ConsolePrintf("5 \n");
    }
 }
 
